@@ -1,0 +1,68 @@
+# Flutter Best Practices
+
+## General Flutter Best Practices
+- Use the latest stable version of Flutter and dependencies.
+- Organize your project structure with clear separation of features.
+- Don't dupplicate the code
+- Utilize the `flutter pub outdated` command to keep dependencies updated.
+- Implement state management solutions like Riverpod or Provider effectively.
+- Use Flutter's built-in widgets for better performance and consistency.
+
+## Flutter Riverpod Best Practices
+- Use `Provider` for dependency injection and state management.
+- Prefer `StateNotifier` for managing complex state logic.
+- Utilize `ScopedProvider` for localized state management.
+- Avoid using `Provider` directly in the widget tree; use `Consumer` or `ConsumerWidget` instead.
+- Keep your providers organized and modular for better maintainability.
+
+## Flutter Secure Storage Best Practices
+- Use `flutter_secure_storage` for sensitive data storage.
+- Always encrypt sensitive data before storing it.
+- Implement proper error handling for storage operations.
+- Regularly review and update your storage strategy as per security best practices.
+- Use platform-specific implementations for enhanced security.
+
+## Go Router Best Practices
+- Use `GoRouter` for declarative routing in your Flutter app.
+- Define routes in a centralized location for better maintainability.
+- Utilize nested routes for complex navigation structures.
+- Implement route guards for authentication and authorization.
+- Keep your route definitions clean and well-documented.
+
+## Google Sign-In Best Practices
+- Use the latest version of `google_sign_in` for security updates.
+- Implement proper error handling for sign-in failures.
+- Store user credentials securely using `flutter_secure_storage`.
+- Ensure compliance with Google's policies for user data handling.
+- Test sign-in flows on both Android and iOS platforms.
+
+## Internationalization Best Practices
+- Use the `intl` package for localization and formatting.
+- Define all strings in a centralized localization file.
+- Use `Intl.message` for dynamic strings to support multiple languages.
+- Regularly update localization files as your app evolves.
+- Test your app in different locales to ensure proper formatting and translations.
+
+## Socket.IO Best Practices
+- Use `socket_io_client` for real-time communication.
+- Implement reconnection logic for better reliability.
+- Handle socket events and errors gracefully.
+- Keep your socket connection logic modular and reusable.
+- Test socket connections under various network conditions.
+
+## Testing Best Practices
+- Use the `test` package for unit and widget testing.
+- Write tests for all critical business logic and UI components.
+- Use `mockito` for mocking dependencies in tests.
+- Follow the Arrange-Act-Assert pattern for structuring tests.
+- Regularly run tests in CI/CD pipelines to catch issues early.
+
+
+
+
+
+
+
+
+
+
