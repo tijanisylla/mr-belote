@@ -1,0 +1,56 @@
+name: mr_belote
+description: "Belote Royale - Mauritanian Belote multiplayer card game"
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.10.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # State Management
+  flutter_riverpod: ^2.5.1
+  
+  # Navigation
+  go_router: ^13.2.0
+  
+  # Networking
+  socket_io_client: ^2.0.3+1
+  dio: ^5.4.0
+  
+  # UI
+  flutter_svg: ^2.0.10+1
+  google_fonts: ^6.1.0
+  flutter_animate: ^4.5.0
+  
+  # Auth
+  google_sign_in: ^6.2.1
+  flutter_facebook_auth: ^6.0.2
+  
+  # Storage
+  shared_preferences: ^2.2.2
+  
+  # Forms
+  flutter_form_builder: ^9.1.1
+  
+  # Game Engine
+  flame: ^1.19.0
+  
+  # Icons
+  cupertino_icons: ^1.0.8
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/new-cards/
+    - assets/avatars/
+
