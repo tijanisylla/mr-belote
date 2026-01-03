@@ -1,0 +1,203 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                     BELOTE TABLE LAYOUT DIAGRAM                            ║
+║                    (Screen: 1536 × 1024, 3:2 ratio)                        ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+┌──────────────────────────────────────────────────────────────────────────┐
+│  🏆 Scoreboard          [Phase: Playing]                  🎮 Controls 🔊 ❌│
+│  Us 0 Them 0                                                              │
+│                                                                            │
+│                         ╔═════╗  (North Hand - backs)                     │
+│                      🧑 ║ BACK║ BACK BACK BACK                            │
+│                      Ahmed                                                 │
+│         ╔═════╗                                                            │
+│      🧑 ║ BACK║ BACK                        BACK BACK ║ BACK║ 🧑          │
+│      Tijani                                             Fatin              │
+│         (West)              ╭─────────────╮              (East)            │
+│                             │   ♠ ♠ ♠ ♠  │                                │
+│                             │  PLAYED     │  🃏🃏                         │
+│                             │   CARDS     │ (Deck)                         │
+│                             │   TRICK     │                                │
+│                             │    (3D)     │                                │
+│                             ╰─────────────╯                                │
+│                                                                            │
+│                                                                            │
+│                                                                            │
+│                          ╔══════╗══════╗══════╗                           │
+│                          ║  7♥  ║  K♠  ║  A♦  ║                           │
+│                          ║      ║      ║      ║                           │
+│                          ╚══════╝══════╝══════╝                           │
+│                        (South Hand - faces, fanned)                       │
+│                                                            👁 5 spectators │
+└──────────────────────────────────────────────────────────────────────────┘
+
+════════════════════════════════════════════════════════════════════════════
+
+KEY POSITIONS (BeloteTableLayout Constants):
+═══════════════════════════════════════════════
+
+AVATARS:
+  • North:  (x: 0.50, y: 0.08)  - Top center
+  • South:  Bottom margin: 20px - Below hand
+  • East:   (x: 0.95, y: 0.42)  - Right center
+  • West:   (x: 0.05, y: 0.42)  - Left center
+  • Size:   65 × 65 pixels
+
+OPPONENT HANDS:
+  • North:  (x: center, y: 0.02) - Above avatar
+  • East:   (x: 0.99, y: 0.40)   - Right side
+  • West:   (x: 0.01, y: 0.40)   - Left side
+  • Cards:  30 × 42 pixels, overlap: 18px
+  • Fan:    ±5° rotation, horizontal
+
+SOUTH HAND (PLAYER):
+  • Position: (x: center, y: bottom 20px)
+  • Cards:    90 × 126 pixels, overlap: 52px
+  • Fan:      ±5° rotation, horizontal
+  • Tilt:     rotateX(-0.12) for 3D toward camera
+
+CENTER TRICK (PLAYED CARDS):
+  • Position: (x: 0.42, y: 0.33) - North-left
+  • Cards:    70 × 98 pixels
+  • Layout:   Diamond/cross pattern
+  • 3D:       rotateX(-0.55) lying on table
+  • Shadow:   (0, 10) with blur: 14
+
+DECK STACK:
+  • Position: (x: 0.68, y: 0.38) - Right of center
+  • Size:     50 × 70 pixels
+  • Count:    12 cards stacked
+  • Offset:   x: 1.4, y: 1.6
+
+OVAL PLAYABLE AREA:
+  • Center:   (x: 0.50, y: 0.50)
+  • Width:    70% of screen
+  • Height:   75% of screen
+  • Shape:    Oval/ellipse
+
+UI ELEMENTS:
+  • Scoreboard:       (20, 20) - Top-left
+  • Controls:         (20, 20) - Top-right
+  • Spectator Count:  (20, 20) - Bottom-right
+
+════════════════════════════════════════════════════════════════════════════
+
+3D TRANSFORM MATRIX:
+═══════════════════════
+
+Center Trick Cards:
+  Matrix4.identity()
+    ..setEntry(3, 2, 0.0018)    // Perspective depth
+    ..scale(scaleValue)         // Scale animation
+    ..rotateX(-0.55)            // Tilt (lying on table)
+    ..rotateZ(rotation)         // Individual card rotation
+
+South Hand:
+  Matrix4.identity()
+    ..setEntry(3, 2, 0.0014)    // Perspective depth
+    ..rotateX(-0.12)            // Group tilt toward camera
+
+════════════════════════════════════════════════════════════════════════════
+
+CARD POSITIONS IN CENTER TRICK:
+═══════════════════════════════════
+
+         NORTH
+          (12, -42)
+           ╔═══╗
+           ║ K♠║
+           ╚═══╝
+
+WEST          ╳          EAST
+(-56, 10)               (54, 6)
+╔═══╗                    ╔═══╗
+║ 7♥║                    ║ A♦║
+╚═══╝                    ╚═══╝
+
+         SOUTH
+         (-10, 28)
+           ╔═══╗
+           ║ Q♣║
+           ╚═══╝
+
+(Offsets in pixels from center point)
+
+════════════════════════════════════════════════════════════════════════════
+
+ANIMATION TIMING:
+═════════════════
+
+Card Play Animation:
+  • Duration:  500ms
+  • Curve:     easeOutCubic (slide)
+  • Curve:     easeOutBack (scale)
+  • From:      Player position
+  • To:        Center trick position
+  • Effects:   Slide + Scale + Rotate
+
+Card Selection:
+  • Duration:  300ms
+  • Curve:     easeOut
+  • Lift:      -14 pixels (upward)
+  • Scale:     1.0 → 1.1
+  • Glow:      Gold shadow
+
+════════════════════════════════════════════════════════════════════════════
+
+WIDGET HIERARCHY:
+═════════════════
+
+Scaffold
+└─ Stack
+   ├─ TableBackground (Image)
+   ├─ Scoreboard (Positioned)
+   ├─ TopRightIcons (Positioned)
+   ├─ SpectatorCount (Positioned)
+   │
+   ├─ NorthAvatar (Positioned)
+   ├─ NorthHand (Positioned → HandFan)
+   │
+   ├─ EastAvatar (Positioned)
+   ├─ EastHand (Positioned → HandFan)
+   │
+   ├─ WestAvatar (Positioned)
+   ├─ WestHand (Positioned → HandFan)
+   │
+   ├─ CenterTrick (Positioned → CenterTrickDisplay)
+   │   └─ AnimatedBuilder × 4
+   │       └─ Transform (Matrix4)
+   │           └─ PlayingCardWidget
+   │
+   ├─ DeckStack (Positioned)
+   │   └─ Stack
+   │       └─ PlayingCardWidget × 12
+   │
+   └─ SouthHand (Positioned → HandFan)
+       └─ Transform (Matrix4 group tilt)
+           └─ Stack
+               └─ Transform.rotate × 8
+                   └─ PlayingCardWidget
+
+════════════════════════════════════════════════════════════════════════════
+
+COLOR PALETTE (From your app):
+══════════════════════════════
+
+Primary Colors:
+  • Gold:         #D4AF37  (primary accent)
+  • Green:        #006B3F  (us team)
+  • Red:          #C41E3A  (them team)
+  • Dark Green:   #005A32  (felt)
+
+Background:
+  • Dark:         #0B0F14  (main background)
+  • Table Felt:   Green gradient
+  • Card Back:    Blue with patterns
+
+UI Elements:
+  • Active:       Gold glow (#FFD700)
+  • Inactive:     Gray (#3A4556)
+  • Shadow:       Black with opacity
+
+════════════════════════════════════════════════════════════════════════════
+

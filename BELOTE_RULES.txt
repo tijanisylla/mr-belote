@@ -1,0 +1,131 @@
+OFFICIAL BELOTE RULES
+====================
+
+1. OVERVIEW
+-----------
+
+Belote is a trick-taking card game played with a 32-card deck, primarily popular in France and several European countries. The game is typically played by four players in two partnerships, but variations exist for two and three players. The objective is to score points by winning tricks and declaring certain card combinations.
+
+
+2. DECK AND CARD RANKING
+-------------------------
+
+The game uses a 32-card deck consisting of the following cards in each suit: Ace, King, Queen, Jack, 10, 9, 8, and 7.
+
+CARD RANKING AND POINT VALUES:
+
+Non-Trump Suits:
+  - Ace: 11 points
+  - 10: 10 points
+  - King: 4 points
+  - Queen: 3 points
+  - Jack: 2 points
+  - 9, 8, 7: 0 points
+
+Trump Suit:
+  - Jack: 20 points
+  - 9: 14 points
+  - Ace: 11 points
+  - 10: 10 points
+  - King: 4 points
+  - Queen: 3 points
+  - 8, 7: 0 points
+
+
+3. DEALING
+----------
+
+- The dealer is chosen randomly for the first game; thereafter, the deal rotates counterclockwise.
+- The deck is shuffled before the first deal and then cut by the player to the dealer's right.
+- Cards are dealt counterclockwise in batches of three, two, and three, so each player receives eight cards.
+
+
+4. BIDDING
+----------
+
+- After the initial deal of five cards to each player, the next card is placed face-up on the table.
+- Starting with the player to the dealer's right, each player has the option to accept the face-up card's suit as trump or pass.
+- If all players pass, a second round of bidding occurs, where players can propose a different suit as trump or pass again.
+- Once a trump suit is agreed upon, the remaining three cards are dealt to each player.
+
+
+5. PLAYING THE GAME
+--------------------
+
+- The player to the dealer's right leads the first trick.
+- Players must follow suit if possible.
+- If unable to follow suit, a player must play a trump card.
+- If unable to follow suit or play a trump, any card may be played.
+- In a trump lead, subsequent players must play a higher trump if possible.
+- The highest trump played wins the trick; if no trumps are played, the highest card of the lead suit wins.
+- The winner of each trick leads the next.
+
+
+6. DECLARATIONS
+---------------
+
+Players can declare specific combinations for additional points:
+
+SEQUENCES:
+  - Tierce (3 consecutive cards in the same suit): 20 points
+  - Quarte (4 consecutive cards): 50 points
+  - Quinte (5 consecutive cards): 100 points
+
+CARRÉ (FOUR OF A KIND):
+  - Jacks: 200 points
+  - Nines: 150 points
+  - Aces, Kings, Queens, or Tens: 100 points
+
+BELOTE/REBELOTE:
+  - King and Queen of the trump suit: 20 points
+  - Must be declared when the first of the two cards is played.
+
+
+7. SCORING
+----------
+
+- Each team sums the point values of cards in the tricks they've won.
+- The team that wins the last trick receives an additional 10 points.
+- If the declaring team meets or exceeds 82 points (half of 162 total points plus one), they fulfill their contract.
+- If the declaring team fails to meet their contract, the opposing team scores all points.
+- Declarations are added to the team's score if they win at least one trick.
+- A team that wins all tricks (Capot) scores an additional 90 points.
+
+
+8. PENALTIES
+------------
+
+- Failing to follow suit when possible results in the opposing team scoring all points for that hand.
+- Incorrect declarations or failure to announce Belote/Rebelote appropriately may lead to forfeiture of those points.
+
+
+9. WINNING THE GAME
+-------------------
+
+- The game is typically played to a predetermined score, often 1,000 points.
+- The first team to reach or exceed this score wins the game.
+
+
+10. VARIATIONS
+--------------
+
+2-PLAYER BELOTE:
+  - Each player receives eight cards.
+  - Bidding and gameplay follow similar rules, with adjustments for the number of players.
+
+3-PLAYER BELOTE:
+  - Each player receives eight cards.
+  - One suit is typically removed to balance the deck.
+  - Players compete individually, and scoring is adjusted accordingly.
+
+
+================================================================================
+NOTE: These rules serve as the authoritative reference for Belote gameplay.
+They will be used for:
+  - Game logic validation
+  - Animation rules (who plays, who wins, who collects)
+  - Scoring calculations
+  - UI hints and tooltips
+  - Preventing illegal moves
+================================================================================
+
